@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/config/product/product_items.dart';
+import 'package:provider/presentation/screens/cart/cart_screen.dart';
 
 class Catalog extends StatelessWidget {
   static String name = "catalog_screen";
@@ -16,7 +18,9 @@ class Catalog extends StatelessWidget {
         centerTitle: true,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              context.pushNamed(Cart.name);
+            },
             icon: const Icon(Icons.shopping_cart),
           )
         ],
@@ -42,7 +46,7 @@ class _CatalogView extends StatelessWidget {
   }
 }
 
-class _CustomListTile extends StatelessWidget {
+class _CustomListTile extends StatefulWidget {
   final String title;
   final IconData icons;
 
@@ -52,13 +56,23 @@ class _CustomListTile extends StatelessWidget {
   });
 
   @override
+  State<_CustomListTile> createState() => _CustomListTileState();
+}
+
+class _CustomListTileState extends State<_CustomListTile> {
+  bool flag = false;
+  @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Icon(icons),
-      title: Text(title),
+      leading: Icon(widget.icons),
+      title: Text(widget.title),
       trailing: IconButton(
-        onPressed: () {},
-        icon: const Text("Add"),
+        onPressed: () {
+          setState(() {
+            flag = !flag;
+          });
+        },
+        icon: flag ? const Icon(Icons.check) : const Text("Add"),
       ),
     );
   }

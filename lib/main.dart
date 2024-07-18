@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/presentation/screens/catalog/catalog_screen.dart';
+import 'package:provider/config/router/app_router.dart';
 
 void main() {
   runApp(const MainApp());
@@ -10,11 +10,9 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(child: Catalog()),
-      ),
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
+      routerConfig: appRouter,
     );
   }
 }

@@ -6,6 +6,23 @@ class Cart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Cart"),
+        centerTitle: true,
+        backgroundColor: Colors.amberAccent,
+      ),
+      body: const Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "0",
+              style: TextStyle(fontSize: 160, fontWeight: FontWeight.w100),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
