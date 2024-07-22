@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:provider/presentation/screens/screens.dart';
+import 'package:provider_flutter/presentation/screens/screens.dart';
 
 final appRouter = GoRouter(routes: [
   GoRoute(

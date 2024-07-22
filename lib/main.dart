@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:provider/config/router/app_router.dart';
+import 'package:provider/provider.dart';
+import 'package:provider_flutter/config/router/app_router.dart';
+import 'package:provider_flutter/presentation/providers/cart_provider.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(ChangeNotifierProvider(
+      create: (context) => CartProvider(), child: const MainApp()));
 }
 
 class MainApp extends StatelessWidget {
